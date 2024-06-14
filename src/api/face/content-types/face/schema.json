@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faces",
+  "info": {
+    "singularName": "face",
+    "pluralName": "faces",
+    "displayName": "Face",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "faceImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "scoreSimularity": {
+      "type": "decimal",
+      "default": 0
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "face"
+    }
+  }
+}

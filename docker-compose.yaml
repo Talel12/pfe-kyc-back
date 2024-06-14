@@ -1,0 +1,65 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: kycstrapi
+      POSTGRES_PASSWORD: kycstrapi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+    networks:
+      - network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "4002:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: strapi@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: strapi
+    volumes:
+      - pgadmin-volume:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - network
+
+  strapi:
+    image: kycstrapi:latest
+    environment:
+      APP_KEYS: oNhQ6c33QGHY85H5d+LVlQ==,CI3vNk9gDnhHepoeXcKB+g==,GfupUWZ1ERrgqzXohsr7aA==,qK8NLQAvzvKRhwQdniLjpg==
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: strapi
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+      JWT_SECRET: AT8V16VQ669RSuwXBsa6qw
+      API_TOKEN_SALT: 2w+cPEMACHEH0rTKWhej4g
+      ADMIN_JWT_SECRET: 9uan7KVTV90KAoYEwoAMmQ
+      TRANSFER_TOKEN_SALT: VcAT2bRFQwQBhBurmCDN8Q
+    volumes:
+      - strapi-volume:/src/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - postgres
+    networks:
+      - network
+
+volumes:
+  postgres-volume:
+
+  pgadmin-volume:
+
+  strapi-volume:
+
+
+networks:
+  network:
+    name: network

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "passports",
+  "info": {
+    "singularName": "passport",
+    "pluralName": "passports",
+    "displayName": "Passport",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "passportImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isValid": {
+      "type": "boolean",
+      "default": false
+    },
+    "extractedData": {
+      "type": "json"
+    },
+    "scoreSimularity": {
+      "type": "decimal",
+      "default": 0
+    }
+  }
+}

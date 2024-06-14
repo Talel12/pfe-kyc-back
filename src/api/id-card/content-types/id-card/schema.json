@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "id_cards",
+  "info": {
+    "singularName": "id-card",
+    "pluralName": "id-cards",
+    "displayName": "IDCard"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "frontImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "backImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "extractedData": {
+      "type": "json"
+    },
+    "scoreSimularity": {
+      "type": "decimal",
+      "default": 0
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "id_card"
+    }
+  }
+}
