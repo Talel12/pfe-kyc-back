@@ -785,7 +785,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToOne',
       'api::id-card.id-card'
     >;
-    phoneNumber: Attribute.String;
+    phoneNumber: Attribute.String & Attribute.Unique;
+    isValidate: Attribute.Boolean & Attribute.DefaultTo<false>;
+    passport: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::passport.passport'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -832,6 +838,7 @@ export interface ApiDetailDetail extends Schema.CollectionType {
     singularName: 'detail';
     pluralName: 'details';
     displayName: 'Detail';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -845,6 +852,8 @@ export interface ApiDetailDetail extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    cardNumber: Attribute.String;
+    passportNumber: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -896,6 +905,7 @@ export interface ApiIdCardIdCard extends Schema.CollectionType {
     singularName: 'id-card';
     pluralName: 'id-cards';
     displayName: 'IDCard';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -904,12 +914,12 @@ export interface ApiIdCardIdCard extends Schema.CollectionType {
     frontImage: Attribute.Media;
     backImage: Attribute.Media;
     extractedData: Attribute.JSON;
-    scoreSimularity: Attribute.Decimal & Attribute.DefaultTo<0>;
     user: Attribute.Relation<
       'api::id-card.id-card',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    isValid: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -942,7 +952,11 @@ export interface ApiPassportPassport extends Schema.CollectionType {
     passportImage: Attribute.Media;
     isValid: Attribute.Boolean & Attribute.DefaultTo<false>;
     extractedData: Attribute.JSON;
-    scoreSimularity: Attribute.Decimal & Attribute.DefaultTo<0>;
+    user: Attribute.Relation<
+      'api::passport.passport',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

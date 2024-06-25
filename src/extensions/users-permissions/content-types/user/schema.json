@@ -84,7 +84,18 @@
       "inversedBy": "user"
     },
     "phoneNumber": {
-      "type": "string"
+      "type": "string",
+      "unique": true
+    },
+    "isValidate": {
+      "type": "boolean",
+      "default": false
+    },
+    "passport": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::passport.passport",
+      "mappedBy": "user"
     }
   }
 }

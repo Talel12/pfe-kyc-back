@@ -4,7 +4,8 @@
   "info": {
     "singularName": "id-card",
     "pluralName": "id-cards",
-    "displayName": "IDCard"
+    "displayName": "IDCard",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,31 +13,33 @@
   "pluginOptions": {},
   "attributes": {
     "frontImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "backImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "extractedData": {
       "type": "json"
-    },
-    "scoreSimularity": {
-      "type": "decimal",
-      "default": 0
     },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "mappedBy": "id_card"
+    },
+    "isValid": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

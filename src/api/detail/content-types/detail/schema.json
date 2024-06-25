@@ -4,7 +4,8 @@
   "info": {
     "singularName": "detail",
     "pluralName": "details",
-    "displayName": "Detail"
+    "displayName": "Detail",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -25,6 +26,12 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "mappedBy": "detail"
+    },
+    "cardNumber": {
+      "type": "string"
+    },
+    "passportNumber": {
+      "type": "string"
     }
   }
 }
