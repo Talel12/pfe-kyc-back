@@ -1,7 +1,8 @@
 "use strict";
 
 const twilio = require("twilio");
-
+const accountSid = "AC5beb281960316b4faf34e9a961b9b318";
+const authToken = "cffee6ce1687645b5c48039f649229b5";
 // @ts-ignore
 const client = new twilio(accountSid, authToken);
 

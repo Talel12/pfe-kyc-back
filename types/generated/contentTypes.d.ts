@@ -854,6 +854,9 @@ export interface ApiDetailDetail extends Schema.CollectionType {
     >;
     cardNumber: Attribute.String;
     passportNumber: Attribute.String;
+    dateNaissance: Attribute.String;
+    expirationDate: Attribute.String;
+    issueDate: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -32,6 +32,15 @@
     },
     "passportNumber": {
       "type": "string"
+    },
+    "dateNaissance": {
+      "type": "string"
+    },
+    "expirationDate": {
+      "type": "string"
+    },
+    "issueDate": {
+      "type": "string"
     }
   }
 }
