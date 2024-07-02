@@ -2,7 +2,7 @@
 
 const twilio = require("twilio");
 const accountSid = "AC5beb281960316b4faf34e9a961b9b318";
-const authToken = "cffee6ce1687645b5c48039f649229b5";
+const authToken = "f7046e1cb950b858a6c9b0cbfc24ea52";
 // @ts-ignore
 const client = new twilio(accountSid, authToken);
 
